@@ -92,7 +92,7 @@ def index():
     """
     Página principal - Redirige al dashboard.
     """
-    return render_template('dashboard.html')
+    return render_template('dashboard_moderno.html')
 
 
 @app.route('/dashboard')
@@ -101,7 +101,7 @@ def dashboard():
     Muestra el dashboard con el iframe de Power BI.
     No requiere autenticación.
     """
-    return render_template('dashboard.html')
+    return render_template('dashboard_moderno.html')
 
 
 @app.route('/dossiers')
@@ -127,13 +127,13 @@ def forbidden(e):
 @app.errorhandler(404)
 def not_found(e):
     """Maneja errores 404 Not Found."""
-    return render_template('404.html'), 404
+    return render_template('404_moderno.html'), 404
 
 
 @app.errorhandler(500)
 def internal_error(e):
     """Maneja errores 500 Internal Server Error."""
-    return render_template('500.html'), 500
+    return render_template('500_moderno.html'), 500
 
 
 # =============================================================================
