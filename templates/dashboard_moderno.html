@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics Dashboard - Power BI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_moderno.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">
+                <div class="navbar-brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </div>
+                <span>Data Analytics</span>
+            </a>
+            <div class="navbar-nav">
+                <a href="/" class="active">Dashboards</a>
+                <a href="/dossiers">Dossiers</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Data Analytics Dashboard</h1>
+            <p>Visualización de datos estratégicos en tiempo real con Power BI</p>
+        </div>
+    </section>
+
+    <!-- PowerBI Container -->
+    <div class="container">
+        <div class="powerbi-container">
+            <iframe
+                title="Data Analytics Dashboard"
+                width="100%"
+                height="100%"
+                src="https://app.powerbi.com/viewer?r=XXXXX"
+                frameborder="0"
+                allowFullScreen="true"
+                class="powerbi-iframe">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Data Analytics Dashboard</h3>
+            <p>&copy; 2025 Todos los derechos reservados</p>
+            <p>Última actualización: Enero 2025</p>
+        </div>
+    </footer>
+</body>
+</html>

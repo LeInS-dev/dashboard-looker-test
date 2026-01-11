@@ -1,0 +1,39 @@
+
+============================================================
+  Dashboard Looker Studio - DINTEMAR
+  Marina de Guerra del Perú
+============================================================
+
+Modo: PRODUCCIÓN
+Restricción: Safari iOS/macOS solamente
+
+Iniciando servidor en http://localhost:5000
+============================================================
+
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.18.229:5000
+[33mPress CTRL+C to quit[0m
+192.168.18.213 - - [09/Jan/2026 00:54:18] "[32mGET / HTTP/1.1[0m" 302 -
+192.168.18.213 - - [09/Jan/2026 00:54:18] "GET /login HTTP/1.1" 200 -
+192.168.18.213 - - [09/Jan/2026 00:54:18] "GET /static/css/styles.css HTTP/1.1" 200 -
+192.168.18.213 - - [09/Jan/2026 00:54:19] "GET /check-browser HTTP/1.1" 200 -
+192.168.18.213 - - [09/Jan/2026 00:54:19] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+192.168.18.213 - - [09/Jan/2026 00:54:35] "[32mPOST /login HTTP/1.1[0m" 302 -
+192.168.18.213 - - [09/Jan/2026 00:54:35] "GET /dashboard HTTP/1.1" 200 -
+192.168.18.213 - - [09/Jan/2026 00:54:36] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+192.168.18.213 - - [09/Jan/2026 00:55:17] "GET /dashboard HTTP/1.1" 200 -
+192.168.18.213 - - [09/Jan/2026 00:55:18] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [09/Jan/2026 00:58:52] "[31m[1mGET / HTTP/1.1[0m" 403 -
+127.0.0.1 - - [09/Jan/2026 00:58:52] "GET /static/css/styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [09/Jan/2026 00:58:52] "[31m[1mGET /favicon.ico HTTP/1.1[0m" 403 -
+192.168.18.213 - - [09/Jan/2026 01:01:55] "GET /dashboard HTTP/1.1" 200 -
+192.168.18.213 - - [09/Jan/2026 01:01:57] "GET /static/css/styles.css HTTP/1.1" 200 -
+100.110.243.86 - - [09/Jan/2026 01:30:10] "[32mGET / HTTP/1.1[0m" 302 -
+100.110.243.86 - - [09/Jan/2026 01:30:10] "GET /login HTTP/1.1" 200 -
+100.110.243.86 - - [09/Jan/2026 01:30:11] "GET /static/css/styles.css HTTP/1.1" 200 -
+100.110.243.86 - - [09/Jan/2026 01:30:11] "GET /check-browser HTTP/1.1" 200 -
+100.110.243.86 - - [09/Jan/2026 01:30:11] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -

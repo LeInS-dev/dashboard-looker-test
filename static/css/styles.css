@@ -1,0 +1,265 @@
+/**
+ * Estilos Navales - DINTEMAR Dashboard Looker
+ * Marina de Guerra del Perú
+ * Reutilizados del sistema DINTEMAR-OSINT
+ */
+
+:root {
+    /* Naval Peru Palette */
+    --azul-profundo: #0a1628;
+    --azul-mar: #0d2137;
+    --azul-medio: #1a3a52;
+    --azul-claro: #2a4a6c;
+    --oro-brillante: #d4a839;
+    --oro-oscuro: #b8922d;
+    --oro-suave: #e8c86e;
+    --blanco-perla: #f5f1e8;
+    --plata-naval: #8a9ab0;
+    --rojo-alerta: #c94a4a;
+    --verde-aprobado: #4a9469;
+
+    /* Spacing & Sizing */
+    --header-height: 140px;
+    --corner-radius: 2px;
+    --border-gold: 1px solid rgba(212, 168, 57, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--azul-profundo);
+    color: var(--blanco-perla);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Ocean Background Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(42, 74, 108, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(212, 168, 57, 0.08) 0%, transparent 50%),
+        linear-gradient(180deg, var(--azul-profundo) 0%, var(--azul-mar) 50%, var(--azul-medio) 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Wave Pattern Overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 100px,
+            rgba(212, 168, 57, 0.02) 100px,
+            rgba(212, 168, 57, 0.02) 101px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 100px,
+            rgba(42, 74, 108, 0.03) 100px,
+            rgba(42, 74, 108, 0.03) 101px
+        );
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-mar) 100%);
+    border-bottom: 2px solid var(--oro-brillante);
+    padding: 20px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        var(--oro-brillante) 20%,
+        var(--oro-suave) 50%,
+        var(--oro-brillante) 80%,
+        transparent 100%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.header-content {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.naval-emblem {
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--oro-brillante);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, var(--azul-medio) 0%, var(--azul-profundo) 100%);
+    box-shadow:
+        0 0 20px rgba(212, 168, 57, 0.3),
+        inset 0 0 30px rgba(0, 0, 0, 0.5);
+    animation: pulse-emblem 4s ease-in-out infinite;
+}
+
+@keyframes pulse-emblem {
+    0%, 100% { box-shadow: 0 0 20px rgba(212, 168, 57, 0.3), inset 0 0 30px rgba(0, 0, 0, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(212, 168, 57, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3); }
+}
+
+.naval-emblem::after {
+    content: '⚓';
+    font-size: 36px;
+    color: var(--oro-brillante);
+    text-shadow: 0 0 10px rgba(212, 168, 57, 0.5);
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.titles h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--oro-suave);
+    letter-spacing: 4px;
+    text-shadow: 0 2px 10px rgba(212, 168, 57, 0.3);
+}
+
+.titles h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--plata-naval);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.titles .subtitle {
+    font-size: 11px;
+    color: var(--plata-naval);
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.naval-crest {
+    text-align: right;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    color: var(--oro-brillante);
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--azul-profundo);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--oro-oscuro) 0%, var(--oro-brillante) 100%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--oro-brillante) 0%, var(--oro-suave) 100%);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .header-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo-section {
+        gap: 15px;
+    }
+
+    .naval-emblem {
+        width: 60px;
+        height: 60px;
+    }
+
+    .naval-emblem::after {
+        font-size: 28px;
+    }
+
+    .titles h1 {
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
+
+    .titles h2 {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .titles .subtitle {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .naval-crest {
+        font-size: 8px;
+    }
+}

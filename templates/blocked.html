@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Denegado - DINTEMAR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .blocked-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px);
+            padding: 40px 20px;
+        }
+
+        .blocked-message {
+            background: linear-gradient(135deg,
+                rgba(201, 74, 74, 0.1) 0%,
+                rgba(13, 33, 55, 0.8) 100%);
+            border: 2px solid var(--rojo-alerta);
+            border-radius: var(--corner-radius);
+            padding: 50px 40px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .blocked-icon {
+            font-size: 64px;
+            color: var(--rojo-alerta);
+            margin-bottom: 20px;
+        }
+
+        .blocked-message h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--rojo-alerta);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .blocked-message p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--blanco-perla);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .browser-info {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(201, 74, 74, 0.3);
+            border-radius: var(--corner-radius);
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .browser-info p {
+            font-size: 11px;
+            color: var(--plata-naval);
+            margin: 0;
+            word-break: break-all;
+        }
+
+        .allowed-browsers {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(201, 74, 74, 0.2);
+        }
+
+        .allowed-browsers h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            color: var(--oro-suave);
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .allowed-browsers ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .allowed-browsers li {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--blanco-perla);
+            padding: 8px 0;
+        }
+
+        .allowed-browsers li::before {
+            content: "✓ ";
+            color: var(--verde-aprobado);
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="naval-emblem"></div>
+                <div class="titles">
+                    <h1>DINTEMAR</h1>
+                    <h2>Dirección de Inteligencia</h2>
+                    <div class="subtitle">Marina de Guerra del Perú</div>
+                </div>
+            </div>
+            <div class="header-controls">
+                <div class="naval-crest">
+                    DASHBOARD<br>LOOKER STUDIO
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="blocked-container">
+        <div class="blocked-message">
+            <div class="blocked-icon">🚫</div>
+            <h2>Acceso Denegado</h2>
+            <p>Este dashboard solo está disponible en el navegador Safari para dispositivos iOS (iPhone/iPad) o macOS.</p>
+            <p>Por favor, acceda desde un navegador compatible.</p>
+
+            <div class="browser-info">
+                <p><strong>Navegador detectado:</strong></p>
+                <p>{{ user_agent }}</p>
+            </div>
+
+            <div class="allowed-browsers">
+                <h3>Navegadores Permitidos:</h3>
+                <ul>
+                    <li>Safari en iOS (iPhone/iPad)</li>
+                    <li>Safari en macOS</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

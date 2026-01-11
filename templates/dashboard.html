@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DINTEMAR - Dashboard Looker Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* Estilos específicos para el dashboard */
+        .dashboard-header {
+            background: linear-gradient(180deg, var(--azul-mar) 0%, var(--azul-profundo) 100%);
+            border-bottom: var(--border-gold);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--plata-naval);
+        }
+
+        .user-info span {
+            color: var(--oro-suave);
+        }
+
+        .btn-logout {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--rojo-alerta);
+            border: 1px solid var(--rojo-alerta);
+            border-radius: var(--corner-radius);
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            background: var(--rojo-alerta);
+            color: var(--blanco-perla);
+            box-shadow: 0 0 15px rgba(201, 74, 74, 0.4);
+        }
+
+        .dashboard-container {
+            padding: 20px;
+            min-height: calc(100vh - 220px);
+        }
+
+        .iframe-wrapper {
+            background: var(--azul-profundo);
+            border: 2px solid var(--oro-brillante);
+            border-radius: var(--corner-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .iframe-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                var(--oro-brillante) 50%,
+                transparent 100%);
+            z-index: 10;
+        }
+
+        .iframe-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: calc(100vh - 240px);
+            min-height: 600px;
+            border: none;
+        }
+
+        .dashboard-footer {
+            text-align: center;
+            padding: 15px 40px;
+            background: linear-gradient(180deg, var(--azul-profundo) 0%, var(--azul-mar) 100%);
+            border-top: var(--border-gold);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--plata-naval);
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dashboard-header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            .dashboard-info {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .iframe-wrapper iframe {
+                height: calc(100vh - 280px);
+            }
+
+            .dashboard-container {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .iframe-wrapper iframe {
+                height: calc(100vh - 300px);
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="naval-emblem"></div>
+                <div class="titles">
+                    <h1>DINTEMAR</h1>
+                    <h2>Dirección de Inteligencia</h2>
+                    <div class="subtitle">Marina de Guerra del Perú</div>
+                </div>
+            </div>
+            <div class="header-controls">
+                <div class="naval-crest">
+                    DASHBOARD<br>LOOKER STUDIO
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-header">
+        <div class="dashboard-info">
+            <div class="user-info">
+                Usuario: <span>{{ username }}</span>
+            </div>
+            <div class="user-info">
+                Sesión: <span id="session-time">Activa</span>
+            </div>
+        </div>
+        <a href="{{ url_for('logout') }}" class="btn-logout">Cerrar Sesión</a>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="iframe-wrapper">
+            <iframe
+                src="https://lookerstudio.google.com/embed/reporting/939a07a5-d7dc-43a6-82c5-cc6e140efdf4/page/JMkkF"
+                frameborder="0"
+                style="border:0"
+                allowfullscreen
+                sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="dashboard-footer">
+        DINTEMAR - Departamento de Inteligencia - Marina de Guerra del Perú<br>
+        Sistema restringido a Safari iOS/macOS • Acceso autorizado únicamente
+    </div>
+
+    <script>
+        // Mostrar tiempo de sesión activa
+        document.addEventListener('DOMContentLoaded', function() {
+            const sessionTimeElement = document.getElementById('session-time');
+            const sessionStart = new Date();
+
+            function updateSessionTime() {
+                const now = new Date();
+                const diff = Math.floor((now - sessionStart) / 1000);
+
+                const hours = Math.floor(diff / 3600);
+                const minutes = Math.floor((diff % 3600) / 60);
+                const seconds = diff % 60;
+
+                let timeString = '';
+                if (hours > 0) {
+                    timeString += `${hours}h `;
+                }
+                if (minutes > 0 || hours > 0) {
+                    timeString += `${minutes}m `;
+                }
+                timeString += `${seconds}s`;
+
+                sessionTimeElement.textContent = timeString;
+            }
+
+            // Actualizar cada segundo
+            setInterval(updateSessionTime, 1000);
+            updateSessionTime();
+
+            // Verificar que el iframe carga correctamente
+            const iframe = document.querySelector('iframe');
+            iframe.addEventListener('load', function() {
+                console.log('Iframe de Looker Studio cargado correctamente');
+            });
+
+            iframe.addEventListener('error', function() {
+                console.error('Error al cargar el iframe de Looker Studio');
+            });
+        });
+    </script>
+</body>
+</html>

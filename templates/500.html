@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error del Servidor - DINTEMAR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .error-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px);
+            padding: 40px 20px;
+        }
+
+        .error-message {
+            background: linear-gradient(135deg,
+                rgba(201, 74, 74, 0.1) 0%,
+                rgba(13, 33, 55, 0.8) 100%);
+            border: 2px solid var(--rojo-alerta);
+            border-radius: var(--corner-radius);
+            padding: 50px 40px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .error-code {
+            font-family: 'Cinzel', serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--rojo-alerta);
+            margin-bottom: 10px;
+        }
+
+        .error-message h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--oro-suave);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .error-message p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--blanco-perla);
+            margin-bottom: 25px;
+        }
+
+        .btn-home {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--oro-brillante) 0%, var(--oro-oscuro) 100%);
+            color: var(--azul-profundo);
+            text-decoration: none;
+            border-radius: var(--corner-radius);
+            transition: all 0.3s ease;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 168, 57, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="naval-emblem"></div>
+                <div class="titles">
+                    <h1>DINTEMAR</h1>
+                    <h2>Dirección de Inteligencia</h2>
+                    <div class="subtitle">Marina de Guerra del Perú</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="error-container">
+        <div class="error-message">
+            <div class="error-code">500</div>
+            <h2>Error del Servidor</h2>
+            <p>Ha ocurrido un error interno en el servidor. Por favor, intente nuevamente más tarde.</p>
+            <a href="{{ url_for('login') }}" class="btn-home">Volver al Inicio</a>
+        </div>
+    </div>
+</body>
+</html>

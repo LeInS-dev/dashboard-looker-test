@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossiers - Data Analytics Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_moderno.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">
+                <div class="navbar-brand-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </div>
+                <span>Data Analytics</span>
+            </a>
+            <div class="navbar-nav">
+                <a href="/">Dashboards</a>
+                <a href="/dossiers" class="active">Dossiers</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Dossiers Analíticos</h1>
+            <p>Informes detallados y análisis estratégicos</p>
+        </div>
+    </section>
+
+    <!-- Dossiers Grid -->
+    <div class="container">
+        <div class="dossiers-grid">
+            <!-- Dossier 1 -->
+            <div class="dossier-item">
+                <div class="dossier-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <h3>Informe Mensual</h3>
+                <p>Análisis detallado del desempeño mensual con métricas clave y KPIs.</p>
+                <span class="coming-soon-badge">Próximamente</span>
+            </div>
+
+            <!-- Dossier 2 -->
+            <div class="dossier-item">
+                <div class="dossier-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                </div>
+                <h3>Análisis Tendencias</h3>
+                <p>Estudio de tendencias y proyecciones basado en datos históricos.</p>
+                <span class="coming-soon-badge">Próximamente</span>
+            </div>
+
+            <!-- Dossier 3 -->
+            <div class="dossier-item">
+                <div class="dossier-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </div>
+                <h3>Reporte Ejecutivo</h3>
+                <p>Resumen ejecutivo con insights y recomendaciones estratégicas.</p>
+                <span class="coming-soon-badge">Próximamente</span>
+            </div>
+
+            <!-- Dossier 4 -->
+            <div class="dossier-item">
+                <div class="dossier-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <h3>Dashboard Performance</h3>
+                <p>Métricas de rendimiento y optimización de procesos.</p>
+                <span class="coming-soon-badge">Próximamente</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Data Analytics Dashboard</h3>
+            <p>&copy; 2025 Todos los derechos reservados</p>
+            <p>Última actualización: Enero 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
