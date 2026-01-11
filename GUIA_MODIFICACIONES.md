@@ -2,6 +2,8 @@
 
 **Propósito:** Este directorio es tu entorno de pruebas para hacer modificaciones al dashboard antes de subirlas a producción.
 
+**Repositorio Git:** https://github.com/LeInS-dev/dashboard-looker-test
+
 ---
 
 ## 📋 FLUJO DE TRABAJO COMPLETO
